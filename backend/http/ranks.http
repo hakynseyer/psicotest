@@ -6,3 +6,21 @@ Authorization: Token {{HTTP_TOKEN}}
   "rank": "miembro",
   "description": "Usuario basico del sistema"
 }
+
+PUT {{HTTP_HOST}}/ranks/update
+Content-Type: application/json
+Authorization: Token {{HTTP_TOKEN}}
+
+{
+  "id": 13,
+  "rank": "dafault",
+  "description": "Usuario inicial de la aplicacion"
+}
+
+DELETE {{HTTP_HOST}}/ranks/delete
+Content-Type: application/json
+Authorization: Token {{HTTP_TOKEN}}
+
+{
+  "id": 13
+}

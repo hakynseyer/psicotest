@@ -7,7 +7,7 @@ Authorization: Token {{HTTP_TOKEN}}
   "surname_first": "reyes",
   "surname_second": "sanchez",
   "password": "111$$$aaa",
-  "notes": "",
+  "notes": "Una nota simple",
   "rank": "1"
 }
 

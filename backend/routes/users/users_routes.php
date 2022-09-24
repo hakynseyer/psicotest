@@ -1,6 +1,9 @@
 <?php
 use Arlequin\Route\Route;
 
-Route::get('/users/create', function ($req, $res) {
-  echo "HOLA MUNDO";
-});
+use backend\routes\users\midd\{Users_Treat};
+
+Route::post(
+  '/users/create',
+  Users_Treat::init()
+);
