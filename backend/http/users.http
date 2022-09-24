@@ -1,0 +1,16 @@
+POST {{HTTP_HOST}}/users/create
+Content-Type: application/json
+Authorization: Token {{HTTP_TOKEN}}
+
+{
+  "name": "joaquin", 
+  "surname_first": "reyes",
+  "surname_second": "sanchez",
+  "password": "111$$$aaa",
+  "notes": "",
+  "rank": "1"
+}
+
+POST {{HTTP_HOST}}/login/token
+Content-Type: application/json
+Authorization: Token {{HTTP_TOKEN}}

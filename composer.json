@@ -1,0 +1,13 @@
+{
+    "name": "jrs/test-psicotest",
+    "description": "Test de prueba para psicotest CRUD",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Joaquin Reyes Sanchez"
+        }
+    ],
+    "require": {
+        "jrs/arlequin": "^1.9"
+    }
+}

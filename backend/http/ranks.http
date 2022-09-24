@@ -1,0 +1,8 @@
+POST {{HTTP_HOST}}/ranks/create
+Content-Type: application/json
+Authorization: Token {{HTTP_TOKEN}}
+
+{
+  "rank": "miembro",
+  "description": "Usuario basico del sistema"
+}
