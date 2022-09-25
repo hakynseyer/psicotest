@@ -4,3 +4,4 @@ composer.lock
 public
 log
 .env
+package-lock.json
