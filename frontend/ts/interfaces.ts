@@ -15,41 +15,15 @@ export interface TypeTableHeader {
   link: string;
 }
 
-export type TypeMaterial = {
-  id: number;
-  name: string;
-  description: string;
-  price: string;
-  priceString: string;
-  amount: number;
-  um: string;
-  idProvider: number;
-  provider: string;
-  user: string;
-  rank: string;
-};
-
-export type TypeProvider = {
-  id: number;
-  company: string;
-  description: string;
-  idUser: number;
-  user: string;
-  rank: string;
-};
-
 export type TypeUser = {
   id: number;
   name: string;
-  surnameFirst: string;
-  surnameSecond: string;
+  surname_first: string;
+  surname_second: string;
   password: string;
-  address: string;
-  city: string;
-  country: string;
   notes: string;
-  idRank: number;
-  rank: string;
+  rank: number;
+  rankName: string;
 };
 
 export type TypeRank = {

@@ -1,34 +1,32 @@
 <script lang="ts" setup>
 // [ ESCENCIALES ]
 import { ref } from "vue";
-/* import { EM } from "@Assets/ts/mitt"; */
-/* import * as Interfaces from '@TS/interfaces'; */
+import { EM } from "@Assets/ts/mitt";
 
 // [ COMPONENTES ]
-/* import Header from '@Componentes/header/header.vue'; */
-/* import Footer from '@Componentes/footer/footer.vue'; */
-/* import Alert from "@Components/alert/alert.vue"; */
+import Header from '@Components/header/header.vue';
+import Footer from '@Components/footer/footer.vue';
+import Alert from "@Components/alert/alert.vue";
 
 // [ REF ]
-const h1 = ref<string>("AQUI");
-/* const Alert = ref<Alert_Class>(new Alert_Class()); */
+const h1 = ref<string>("Examen Técnico");
 
 // [ EVENTBUS ]
-/* EM.on("APP_h1", (title: string): void => { */
-/*   h1.value = title; */
-/* }); */
+EM.on("APP_h1", (title: string): void => {
+  h1.value = title;
+});
+
 </script>
 
 <template lang="pug">
-// Header(titulo='Hakyn')
-//Alert
+Header(title='Psicotest')
+Alert
 .content
   h1 {{ h1 }}
-  h3 Este es un titulo
-  //router-view
-//Footer(titulo='Hakyn')
+  router-view
+Footer
 </template>
 
 <style lang="sass">
-//@import "@Assets/sass/init.sass";
+@import "@Assets/sass/init.sass";
 </style>

@@ -1,3 +1,5 @@
+GET {{HTTP_HOST}}/users
+
 POST {{HTTP_HOST}}/users/create
 Content-Type: application/json
 Authorization: Token {{HTTP_TOKEN}}

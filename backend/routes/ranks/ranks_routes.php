@@ -1,7 +1,12 @@
 <?php
 use Arlequin\Route\Route;
 
-use backend\routes\ranks\midd\{Ranks_Treat, Ranks_Val, Ranks_Create, Ranks_Update, Ranks_Delete};
+use backend\routes\ranks\midd\{Ranks_Treat, Ranks_Val, Ranks_Create, Ranks_Update, Ranks_Delete, Ranks_Read};
+
+Route::get(
+  '/ranks',
+  Ranks_Read::init()
+);
 
 Route::post(
   '/ranks/create',

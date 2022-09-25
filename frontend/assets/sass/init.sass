@@ -1,0 +1,98 @@
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+  --color-primary: #6C3B73;
+  --color-secondary: #BB0E69;
+  --color-success: #40e583;
+  --color-danger: #de1041;
+  --color-warning: #ffac0a;
+  --color-info: #3069A8;
+
+  --color-dark: #1c1b1f;
+  --color-white: #ededed;
+  --color-black: #000000;
+
+html
+  font-size: 16px
+  font-family: sans-serif
+
+body
+  background-color: var(--color-white)
+  color: var(--color-dark)
+
+a
+  color: var(--color-dark)
+
+input, textarea, select, 
+  color: var(--va-dark) !important;
+  // font-weight: bold !important;
+  // height: 2rem
+  margin-top: .5rem
+
+input:focus, textarea:focus, select:focus
+  border: node
+  outline: none
+
+textarea, select 
+  margin: 12px 0 0 0 !important
+
+option
+  width: 100%
+  background-color: var(--color-primary)
+  color: var(--color-white)
+  cursor: pointer !important
+  border: none !important
+  outline: none !important
+
+button
+  border: none
+  outline: none
+  cursor: pointer
+
+h1
+  width: 100%
+  padding: 0 4rem 
+  font-size: 2rem
+  text-transform: capitalize
+  margin-bottom: 1rem
+  display: flex
+  align-items: center
+  padding-left: 3rem
+  border-bottom: solid 2px var(--color-dark)
+  padding-bottom: .5rem
+
+  &:before
+    content: ''
+    width: 0
+    height: 0
+    border-left: 30px solid var(--color-dark)
+    border-top: 15px solid transparent
+    border-bottom: 15px solid transparent
+    margin-right: 1rem
+    display: block
+
+h2
+  width: 100%
+  font-size: 1rem
+  border-bottom: solid 2px var(--color-dark)
+  text-transform: uppercase
+  text-align: center
+  margin-bottom: .5rem
+
+#app
+  width: 100%
+  // background-color: red
+  overflow: hidden
+
+
+.content
+  // width: 100%
+  // background-color: green
+  padding: 1rem 10rem
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+  // box-sizing: boder-box
+  overflow: hidden

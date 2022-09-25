@@ -228,7 +228,8 @@ const htmlWebpackPluginOptions = (key) => {
         title: "FRONTEND DEVELOPER",
         creador: process.env.WEBPACK_CREATOR,
         creadorEmail: process.env.WEBPACK_CREATOR_EMAIL,
-        host: `${process.env.BACKEND_HOST}:${process.env.BACKEND_PORT}`,
+        //host: `${process.env.BACKEND_HOST}:${process.env.BACKEND_PORT}`, // backend NODE (aqui require agregar el puerto)
+        host: `${process.env.BACKEND_HOST}`, // Backend PHP 
       },
     };
   } else {

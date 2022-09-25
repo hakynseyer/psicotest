@@ -1,10 +1,12 @@
+GET {{HTTP_HOST}}/ranks
+
 POST {{HTTP_HOST}}/ranks/create
 Content-Type: application/json
 Authorization: Token {{HTTP_TOKEN}}
 
 {
-  "rank": "moderador",
-  "description": "Usuario con permisos de moderador"
+  "rank": "admin",
+  "description": "Usuario con permisos de administrador"
 }
 
 PUT {{HTTP_HOST}}/ranks/update

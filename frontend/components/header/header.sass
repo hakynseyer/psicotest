@@ -1,0 +1,129 @@
+.header
+  // background-color: red;
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  align-items: center
+  padding: 0 4rem
+
+  &__logo
+    /* background-color: pink; */
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h2
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      width: 100%;
+      text-align: left;
+      text-indent: 1.5rem;
+      cursor: pointer;
+
+  &__menu
+    /* background-color: green; */
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    ul
+      /* background-color: cyan; */
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      li
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center
+        margin-right: 1rem;
+        transition: border-bottom 100ms ease;
+        border: solid 3px var(--va-dark)
+        border-radius: 5px
+
+        &:hover
+          background-color: var(--va-dark)
+
+          a
+            color: var(--va-white)
+
+        &:last-child
+          margin-right: 0;
+        
+        a
+          width: 100%;
+          height: 2.5rem;
+          line-height: 1rem;
+          display: flex
+          flex-wrap: wrap
+          justify-content: center
+          align-items: center
+          text-decoration: none;
+          text-align: center;
+          font-size: 0.7rem;
+          font-weight: bold;
+          text-transform: uppercase;
+          color: var(--va-dark)
+
+    &__boton
+      width: 100%
+      height: 100%
+      border: none
+      outline: none
+      font-size: 0.7rem;
+      font-weight: bold;
+      line-height: 1rem;
+      text-align: center;
+      text-transform: uppercase;
+      cursor: pointer
+      background-color: transparent
+
+      &:hover
+        background-color: var(--va-dark)
+        color: var(--va-white)
+  
+  &__user
+    // background-color: violet
+    width: 30%;
+    animation: usuario 1000ms ease
+
+    @keyframes usuario
+      from
+        transform: rotateX(-90deg)
+      to
+        transform: rotateX(0)
+
+    &__info
+      /* background-color: yellow; */
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center
+
+      i
+        /* background-color: red; */
+        font-size: 4rem;
+        text-align: center;
+
+      &__data
+        padding: 1rem;
+        width: 10rem
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        overflow: hidden
+
+        span
+          width: 100%;
+          font-size: 0.7rem;
+          display: inline-block;
+          // text-align: center;
+          font-weight: bold;
+          line-height: 1rem;
+
+          &:nth-child(2)
+            text-decoration: underline;
