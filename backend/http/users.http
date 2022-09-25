@@ -3,7 +3,7 @@ Content-Type: application/json
 Authorization: Token {{HTTP_TOKEN}}
 
 {
-  "name": "joaquin", 
+  "name": "Alethia", 
   "surname_first": "reyes",
   "surname_second": "sanchez",
   "password": "111$$$aaa",
@@ -30,5 +30,5 @@ Content-Type: application/json
 Authorization: Token {{HTTP_TOKEN}}
 
 {
-  "id": "2"
+  "id": 4
 }

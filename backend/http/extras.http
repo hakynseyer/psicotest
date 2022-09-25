@@ -1,0 +1,42 @@
+POST {{HTTP_HOST}}/extras/create
+Content-Type: application/json
+Authorization: Token {{HTTP_TOKEN}}
+
+{
+  "gender": "male", 
+  "country": "colombia",
+  "city": "bogotá",
+  "address": "Sin especificar",
+  "phone": {
+    "phone_1": 12345
+  },
+  "map_longitude": "00000",
+  "map_latitude": "-1-1-1-1",
+  "user": "3"
+}
+
+PUT {{HTTP_HOST}}/extras/update
+Content-Type: application/json
+Authorization: Token {{HTTP_TOKEN}}
+
+{
+  "gender": "female", 
+  "country": "México",
+  "city": "Queretaro",
+  "address": "Juriquilla Centro",
+  "phone": {
+    "phone_1": 99999
+  },
+  "map_longitude": "",
+  "map_latitude": "",
+  "user": 4,
+  "id": 2
+}
+
+DELETE {{HTTP_HOST}}/extras/delete
+Content-Type: application/json
+Authorization: Token {{HTTP_TOKEN}}
+
+{
+  "id": 1
+}
