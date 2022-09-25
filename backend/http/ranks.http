@@ -3,8 +3,8 @@ Content-Type: application/json
 Authorization: Token {{HTTP_TOKEN}}
 
 {
-  "rank": "miembro",
-  "description": "Usuario basico del sistema"
+  "rank": "moderador",
+  "description": "Usuario con permisos de moderador"
 }
 
 PUT {{HTTP_HOST}}/ranks/update

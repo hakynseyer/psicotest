@@ -8,9 +8,27 @@ Authorization: Token {{HTTP_TOKEN}}
   "surname_second": "sanchez",
   "password": "111$$$aaa",
   "notes": "Una nota simple",
-  "rank": "1"
+  "rank": "14"
 }
 
-POST {{HTTP_HOST}}/login/token
+PUT {{HTTP_HOST}}/users/update
 Content-Type: application/json
 Authorization: Token {{HTTP_TOKEN}}
+
+{
+  "name": "maria", 
+  "surname_first": "reyes",
+  "surname_second": "sanchez",
+  "password": "222$$$bbb",
+  "notes": "",
+  "rank": "14",
+  "id": "2"
+}
+
+DELETE {{HTTP_HOST}}/users/delete
+Content-Type: application/json
+Authorization: Token {{HTTP_TOKEN}}
+
+{
+  "id": "2"
+}
