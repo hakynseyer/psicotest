@@ -1,0 +1,62 @@
+.input
+  &__write 
+    // background-color: red
+    display: flex
+    align-items: center
+    margin-top: .5rem
+
+    &__input
+      width: 70%
+      height: 1rem
+      font-size: .9rem !important
+      font-weight: bold
+      padding: .7rem !important
+      margin: 0 !important
+    
+    &__button
+      margin-left: .5rem
+      width: 30%
+      height: 1.5rem
+      padding: 0 .5rem
+      border: dotted 1px var(--color-black) !important
+      font-size: .6rem
+      text-transform: uppercase
+      font-weight: bold
+
+      &:hover
+        background-color: var(--color-success)
+
+
+  &__info
+    margin-top: .5rem
+
+    &__item
+      display: flex
+      flex-direction: column
+      border: solid 1px red
+      margin-bottom: .5rem
+      border: dotted 2px var(--color-secondary)
+      padding: .3rem
+      position: relative
+
+      &:last-child
+        margin-bottom: 0rem
+
+      &__label
+        font-size: .6rem
+        font-weight: bold
+        text-transform: uppercase
+      
+      &__value
+        margin-top: .3rem
+        font-size: .7rem
+        font-style: italic
+        text-indent: .5rem
+
+      &__close
+        user-select: none
+        cursor: pointer
+        color: var(--color-danger)
+        position: absolute
+        top: 0
+        right: 0

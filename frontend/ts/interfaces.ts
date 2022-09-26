@@ -10,10 +10,26 @@ export interface TypeSelectOptions {
   value: string;
 }
 
+export interface TypeRadioOptions<T> {
+  label: string;
+  value: T;
+}
+
+export interface TypeTask {
+  title: string;
+  value: string;
+}
+
 export interface TypeTableHeader {
   label: string;
   link: string;
 }
+
+export type TypeRank = {
+  id: number;
+  rank: string;
+  description: string;
+};
 
 export type TypeUser = {
   id: number;
@@ -26,8 +42,24 @@ export type TypeUser = {
   rankName: string;
 };
 
-export type TypeRank = {
+export enum EnumGender {
+  MALE = 'male',
+  FEMALE = 'female'
+}
+
+export type TypeExtras = {
   id: number;
-  rank: string;
-  description: string;
-};
+  gender: EnumGender;
+  country: string;
+  city: string;
+  address: string;
+  phone: Array<TypeTask>;
+  map_longitude: string;
+  map_latitude: string;
+  user: number;
+  name: string;
+  surname_first: string;
+  surname_second: string;
+  genderHeader: string;
+  userName: string;
+}

@@ -6,6 +6,8 @@ export function useClickOutside(targetRef, component, idParent, callback) {
   const listener = (e) => {
     switch (component) {
       case "select":
+        if (e.target.parentNode.parentNode === null) return
+
         if (
           e.target.parentNode.id === idParent ||
           e.target.parentNode.parentNode.id === idParent
