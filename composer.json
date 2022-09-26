@@ -8,6 +8,6 @@
         }
     ],
     "require": {
-        "jrs/arlequin": "^1.9"
+        "jrs/arlequin": "^1.10"
     }
 }
