@@ -30,7 +30,7 @@ const emit = defineEmits(["update:modelValue"]);
 
 // [ COMPUTED ]
 const theTasks: ComputedRef = computed<Array<Interfaces.TypeTask>>((): Array<Interfaces.TypeTask> => {
-  if (props.modelValue.length) tasks.value = props.modelValue
+  tasks.value = props.modelValue
 
   return tasks.value;
 });

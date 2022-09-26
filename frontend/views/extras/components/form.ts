@@ -323,4 +323,44 @@ export class FormClass extends GettersSettersClass {
       })
     }
   }
+
+  public async deleteExtras(extra: TypeExtras): Promise<void> {
+    this.clearData()
+
+    const request: Request = Fetch.request(
+      `${THE_SERVER.host}/extras/delete`,
+      FETCH_METHODS.DELETE,
+      {
+        id: extra.id,
+      }
+    );
+
+    try {
+      const res = await fetch(request);
+
+      switch (res.status) {
+        case 200:
+          EM.emit("COMPONENT_ALERT_launchAlert", {
+            color: "success",
+            message: `Extras del usuario eliminado`,
+            status: true,
+            timer: 5000,
+          });
+
+          // Actualizar Tabla
+          EM.emit("VIEW_EXTRAS_updateTable");
+
+          return;
+          break;
+      }
+    } catch (e) {
+      console.error(e);
+
+      EM.emit("COMPONENT_ALERT_launchAlert", {
+        color: "danger",
+        message: "Hubo un problema con el servidor",
+        status: true,
+      });
+    }
+  }
 }

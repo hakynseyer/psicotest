@@ -46,7 +46,7 @@ class Extras_Val {
     );
   }
 
-  private function val_user(int $user_id): ?string {
+  private function val_user(int $user_id, int $id_reg = 0): ?string {
     $val_number = Validate::bigger(
       $user_id,
       0
@@ -64,7 +64,23 @@ class Extras_Val {
         if ($stmt->execute()) {
           $data = $stmt -> fetchAll(\PDO::FETCH_OBJ);
 
-          if (count($data) === 1) return null;
+          if (count($data) === 1) {
+            // Comprobando que el usuario sea único
+            $stmt = $db -> prepare('SELECT id, user from extras WHERE user = :user');
+
+            $stmt -> bindValue(':user', $user_id);
+
+            if ($stmt -> execute()) {
+              $data2 = $stmt -> fetchAll(\PDO::FETCH_OBJ);
+
+              if (count($data2) === 0) return null;
+              elseif (count($data2) === 1) {
+                // Comprobacion para cuando se quiera actualizar el mismo registro con usuario igual
+                if ($id_reg === $data2[0] -> id) return null;
+                else return 'Este usuario ya cuenta con datos extras';
+              } else return 'Este usuario ya cuenta con datos extras';
+            } else return 'No se pudo validar el registro del usuario (C)';
+          }
           else return 'No se pudo validar el registro del usuario (B)'; 
         } else return 'No se pudo validar el registro del usuario (A)';
 
@@ -125,7 +141,7 @@ class Extras_Val {
         $val_address = $this -> val_address($extra->get_address());
         $val_map_longitude = $this -> val_map($extra->get_map_longitude());
         $val_map_latitude = $this -> val_map($extra->get_map_latitude());
-        $val_user = $this -> val_user($extra->get_user()->get_id());
+        $val_user = $this -> val_user($extra->get_user()->get_id(), $extra->get_id());
         $val_id = $this -> val_id($extra->get_id());
 
         if (

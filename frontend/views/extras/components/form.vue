@@ -36,8 +36,7 @@ EM.on("VIEW_EXTRAS_FORM_extrasSelected", (extras: Interfaces.TypeExtras): void =
 })
 
 EM.on("VIEW_EXTRAS_FORM_deleteExtras", (extras: Interfaces.TypeExtras): void => {
-  console.log("ELIMINANDO EXTRAS")
-  /* form.value.deleteUser(user) */
+  Form.value.deleteExtras(extras)
 })
 </script>
 
@@ -80,6 +79,8 @@ EM.on("VIEW_EXTRAS_FORM_deleteExtras", (extras: Interfaces.TypeExtras): void => 
   )
 
   Input(label="Dirección", typeInput="textarea", :error="Form.addressError", v-model="Form.address")
+
+  button(type="button" @click="Form.clearData()") Borrar
 
   Task(
     label="Telefonos",

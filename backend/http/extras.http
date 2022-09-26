@@ -27,12 +27,15 @@ Authorization: Token {{HTTP_TOKEN}}
   "country": "México",
   "city": "Queretaro",
   "address": "Juriquilla Centro",
-  "phone": {
-    "phone_1": 99999
-  },
+  "phone": [
+    {
+      "title": "Celular",
+      "value": "99999999"
+    }
+  ],
   "map_longitude": "",
   "map_latitude": "",
-  "user": 4,
+  "user": 2,
   "id": 2
 }
 

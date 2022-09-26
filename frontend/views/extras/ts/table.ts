@@ -68,9 +68,10 @@ export class TableClass extends GettersSettersClass {
 
     this._extras = this._originExtras.filter((extra: TypeExtras) => {
       return (
-        extra.gender.toLowerCase().match(searchFix) ||
+        extra.genderHeader.toLowerCase().match(searchFix) ||
         extra.country.toLowerCase().match(searchFix) ||
-        extra.city.toLowerCase().match(searchFix)
+        extra.city.toLowerCase().match(searchFix) ||
+        extra.userName.toLowerCase().match(searchFix)
       );
     });
   }

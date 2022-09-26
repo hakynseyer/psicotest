@@ -40,7 +40,7 @@ EM.on("VIEW_EXTRAS_updateTable", async (): Promise<void> => {
       :deleteIcon="true",
       @activeDelete="TableExtras.deleteExtraSelected($event)",
       @itemSelected="TableExtras.saveExtraSelected($event)",
-      @searchData="TableExtras.searchUser($event)"
+      @searchData="TableExtras.searchExtra($event)"
     )
   .extras__actions
     h2 {{Extras.titleForm}}
