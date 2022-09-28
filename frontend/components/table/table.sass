@@ -6,6 +6,52 @@
   overflow: auto
   box-sizing: border-box
 
+  &__modal
+    width: 100vw
+    height: 100vh
+    background-color: rgba(0, 0, 0, .5)
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 2
+
+    &__content
+      background-color: var(--color-white)
+      position: fixed
+      top: 15vh
+      left: 25vw
+      width: 50vw
+      height: 450px
+      overflow-y: auto
+      border: solid 3px var(--color-black)
+      border-radius: 10px
+      z-index: 3
+      padding: 1rem
+      position: relative
+      animation: modal-show 500ms ease
+
+      @keyframes modal-show
+        from
+          transform: scale(0)
+        to
+          transform: scale(1)
+
+      i
+        color: var(--color-danger)
+        position: absolute
+        right: 0
+        top: 0
+        margin: .5rem .5rem 0 0
+        font-size: 1.5rem
+        cursor: pointer
+        border: solid 2px var(--color-danger)
+        border-radius: 5px
+        user-select: none
+
+        &:hover
+          color: var(--color-white)
+          background-color: var(--color-danger)
+
   &__controls
     margin-bottom: 1rem
     width: 100%
@@ -65,7 +111,7 @@
     display: flex
 
     &__item
-      width: 100px
+      min-width: 100px
       height: 30px
       display: flex
       justify-content: center
@@ -114,7 +160,7 @@
         overflow: hidden
 
         &--actions
-          width: 80px
+          min-width: 80px
           display: flex
           justify-content: space-around
 
@@ -122,6 +168,10 @@
             border-radius: 5px
             border: solid 2px var(--color-dark)
             color: var(--color-dark)
+            margin-right: .2rem
+
+            &:last-child
+              margin-right: 0
 
           &__info
             &:hover
@@ -132,3 +182,8 @@
             &:hover
               background-color: var(--color-danger)
               border: solid 2px var(--color-danger) !important
+
+          &__modal
+            &:hover
+              background-color: var(--color-secondary)
+              border: solid 2px var(--color-secondary) !important

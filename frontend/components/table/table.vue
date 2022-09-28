@@ -10,6 +10,7 @@ interface Props {
   data?;
   deleteIcon?: boolean;
   infoIcon?: boolean;
+  modalSlot?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -17,10 +18,12 @@ const props = withDefaults(defineProps<Props>(), {
   data: [],
   deleteIcon: false,
   infoIcon: false,
+  modalSlot: ""
 });
 
 // [ REF ]
 const hideActions = ref<boolean>(false);
+const statusModal = ref<boolean>(false);
 const searchInput = ref<string>("");
 
 // [ EMITS ]
@@ -28,6 +31,7 @@ const emit = defineEmits([
   "itemSelected",
   "activeInfo",
   "activeDelete",
+  "activeModal",
   "searchData",
 ]);
 
@@ -47,6 +51,11 @@ const activeInfo = (data): void => {
 const activeDelete = (data): void => {
   emit("activeDelete", data);
 };
+const activeModal = (data): void => {
+  emit("activeModal", data);
+
+  statusModal.value = !statusModal.value
+}
 const searchData = (): void => {
   emit("searchData", searchInput.value);
 };
@@ -84,6 +93,10 @@ const searchDataKeyup = (event): void => {
     )
     i.material-icons(@click="searchData()") search
 .table
+  .table__modal(v-show="statusModal")
+    .table__modal__content
+      i.material-icons(@click="statusModal = !statusModal") close
+      slot
   .table__header
     .table__header__item.table__header__item--actions(
       v-if="!hideActions && (deleteIcon === true || infoIcon === true)"
@@ -106,6 +119,10 @@ const searchDataKeyup = (event): void => {
           v-if="deleteIcon === true",
           v-on:click.stop="activeDelete(row)"
         ) delete
+        i.material-icons.table__content__row__item--actions__modal(
+          v-if="modalSlot.length",
+          v-on:click.stop="activeModal(row)"
+        ) {{modalSlot}}
       .table__content__row__item(
         v-for="(item, index) in fixColumnsDataList(row)",
         :key="index"
