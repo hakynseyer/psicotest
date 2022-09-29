@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 // [ ESCENCIALES ]
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
 import { EM } from "@Assets/ts/mitt";
 import * as Interfaces from "@TS/interfaces";
 
@@ -12,6 +12,11 @@ import { FormClass } from "./form";
 
 // [ REF ]
 const form = ref<FormClass>(new FormClass());
+
+// [HOOKS]
+onBeforeUnmount(async () => {
+  EM.all.clear()
+})
 
 // [ EVENTBUS ]
 EM.on("VIEW_RANKS_FORM_rankSelected", (rank: Interfaces.TypeRank): void => {

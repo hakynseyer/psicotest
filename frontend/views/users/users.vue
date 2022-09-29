@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 // [ESCENCIALES]
-import {ref, onMounted} from 'vue' 
+import {ref, onMounted, onBeforeUnmount} from 'vue' 
 import {EM} from '@Assets/ts/mitt'
 
 // [COMPONENTES]
@@ -18,6 +18,10 @@ const TableUsers = ref<TableClass>(new TableClass())
 // [HOOKS]
 onMounted(async() => {
   await TableUsers.value.listUsers()
+})
+
+onBeforeUnmount(async () => {
+  EM.all.clear()
 })
 
 // [EVENTBUS]

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 // [ESCENCIALES]
-import {ref, onMounted} from 'vue'
+import {ref, onMounted, onBeforeUnmount} from 'vue'
 import {EM} from '@Assets/ts/mitt'
 import * as Interfaces from '@TS/interfaces'
 
@@ -17,6 +17,10 @@ const form = ref<FormClass>(new FormClass())
 // [HOOKS]
 onMounted(async() => {
   await form.value.getRankList()
+})
+
+onBeforeUnmount(async () => {
+  EM.all.clear()
 })
 
 // [EVENTBUS]

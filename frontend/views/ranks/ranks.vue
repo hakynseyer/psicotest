@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 // [ ESCENCIALES ]
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
 import { EM } from "@Assets/ts/mitt";
 
 // [ COMPONENTS ]
@@ -19,6 +19,10 @@ const TableRanks = ref<TableClass>(new TableClass());
 onMounted(async () => {
   await TableRanks.value.listRanks();
 });
+
+onBeforeUnmount(async () => {
+  EM.all.clear()
+})
 
 // [ EVENTBUS ]
 EM.emit("APP_h1", "Rangos");

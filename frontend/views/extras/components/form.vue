@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 // [ESCENCIALES]
-import {ref, onMounted} from 'vue'
+import {ref, onMounted, onBeforeUnmount} from 'vue'
 import {EM} from '@Assets/ts/mitt'
 import * as Interfaces from '@TS/interfaces'
 
@@ -21,6 +21,10 @@ onMounted(async() => {
   await Form.value.getUserList()
 
   Form.value.getCountryList()
+})
+
+onBeforeUnmount(async () => {
+  EM.all.clear()
 })
 
 // [EVENTBUS]

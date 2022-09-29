@@ -30,3 +30,32 @@ class Extras_Read {
     }
   }
 }
+
+class Extras_Read_Map {
+  use \Arlequin\Singleton;
+
+  public function middleware($req, $res) {
+    try {
+      $db = Database_PDO::init() -> conn();
+      
+      $stmt = $db -> prepare('SELECT map_latitude, map_longitude FROM extras WHERE id=:id');
+      $stmt -> bindValue(':id', $req->chest['params'][0]);
+
+      if ($stmt->execute()) {
+        Database_PDO::init()->close();
+        
+        $data = $stmt -> fetchAll(\PDO::FETCH_OBJ);
+
+        $res -> code (201, [
+          'extras' => $data,
+        ]);
+      }
+    } catch (\Exception $e) {
+      Database_PDO::init()->close();
+
+      $res -> code (500, [
+        'error' => $e -> getMessage()
+      ]);
+    }
+  }
+}

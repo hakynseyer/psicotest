@@ -3,6 +3,7 @@ import {
   TypeAlertData,
   TypeUser,
   TypeExtras,
+  TypeExtrasMap,
   TypeRank,
 } from "@TS/interfaces";
 
@@ -25,6 +26,7 @@ type Events = {
   VIEW_EXTRAS_FORM_extrasSelected: TypeExtras;
   VIEW_EXTRAS_FORM_deleteExtras: TypeExtras;
   VIEW_EXTRAS_updateTable: void;
+  VIEW_EXTRAS_mapLeaflet: TypeExtrasMap;
 };
 
 export const EM: Emitter<Events> = mitt<Events>();

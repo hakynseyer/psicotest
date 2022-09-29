@@ -63,3 +63,10 @@ export type TypeExtras = {
   genderHeader: string;
   userName: string;
 }
+
+export type TypeExtrasMap = {
+  country: string;
+  city: string;
+  map_longitude: string;
+  map_latitude: string;
+}

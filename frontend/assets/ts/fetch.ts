@@ -9,6 +9,7 @@ export enum FETCH_METHODS {
   GET,
   POST,
   PUT,
+  PATCH,
   DELETE,
 }
 

@@ -1,4 +1,5 @@
 GET {{HTTP_HOST}}/extras
+GET {{HTTP_HOST}}/extras/map/2
 
 POST {{HTTP_HOST}}/extras/create
 Content-Type: application/json
@@ -36,6 +37,16 @@ Authorization: Token {{HTTP_TOKEN}}
   "map_longitude": "",
   "map_latitude": "",
   "user": 2,
+  "id": 2
+}
+
+PATCH {{HTTP_HOST}}/extras/update/map
+Content-Type: application/json
+Authorization: Token {{HTTP_TOKEN}}
+
+{
+  "map_longitude": "6666",
+  "map_latitude": "6666",
   "id": 2
 }
 

@@ -37,13 +37,21 @@ class Extras_Val {
     );
   }
 
-  private function val_map(string $map): ?string {
-    return Validate::val_EmptyOptional_Type_Min_max(
-      $map,
-      'string',
-      4,
-      100
-    );
+  private function val_map(string $map, string $method=""): ?string {
+    if ($method === "patch")
+      return Validate::val_Empty_Type_Min_max(
+        $map,
+        'string',
+        4,
+        100
+      );
+    else
+      return Validate::val_EmptyOptional_Type_Min_max(
+        $map,
+        'string',
+        4,
+        100
+      );
   }
 
   private function val_user(int $user_id, int $id_reg = 0): ?string {
@@ -165,6 +173,22 @@ class Extras_Val {
               'map_longitude' => $val_map_longitude,
               'map_latitude' => $val_map_latitude,
               'user' => $val_user,
+              'id' => $val_id
+            ]
+          ]);
+        }
+        break;
+      case 'patch':
+        $val_map_longitude = $this -> val_map($extra->get_map_longitude(), "patch");
+        $val_map_latitude = $this -> val_map($extra->get_map_latitude(), "patch");
+        $val_id = $this -> val_id($extra->get_id());
+
+        if (empty($val_map_longitude) && empty($val_map_latitude) && empty($val_id)) $next -> mw;
+        else {
+          $res -> code (406, [
+            'error' => [
+              'map_longitude' => $val_map_longitude,
+              'map_latitude' => $val_map_latitude,
               'id' => $val_id
             ]
           ]);

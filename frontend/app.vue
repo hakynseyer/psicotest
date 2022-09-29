@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 // [ ESCENCIALES ]
-import { ref } from "vue";
+import { ref, onBeforeUnmount } from "vue";
 import { EM } from "@Assets/ts/mitt";
 
 // [ COMPONENTES ]
@@ -15,6 +15,11 @@ const h1 = ref<string>("Examen Técnico");
 EM.on("APP_h1", (title: string): void => {
   h1.value = title;
 });
+
+// [HOOKS]
+onBeforeUnmount(async () => {
+  EM.all.clear()
+})
 
 </script>
 

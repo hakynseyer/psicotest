@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 // [ ESCENCIALES ]
-import { ref, computed } from "vue";
+import { ref, computed, onBeforeUnmount } from "vue";
 import type { ComputedRef } from "vue";
 import { EM } from "@Assets/ts/mitt";
 import * as Interfaces from "@TS/interfaces";
@@ -14,6 +14,11 @@ const alertStatus = ref<boolean>(false);
 const classAlert: ComputedRef = computed((): string => {
   return `alert--${alertColor.value}`;
 });
+
+// [HOOKS]
+onBeforeUnmount(async () => {
+  EM.all.clear()
+})
 
 // [ EVENTBUS ]
 EM.on(
