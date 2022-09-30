@@ -84,8 +84,6 @@ EM.on("VIEW_EXTRAS_FORM_deleteExtras", (extras: Interfaces.TypeExtras): void => 
 
   Input(label="Dirección", typeInput="textarea", :error="Form.addressError", v-model="Form.address")
 
-  button(type="button" @click="Form.clearData()") Borrar
-
   Task(
     label="Telefonos",
     placeholder="555...",
