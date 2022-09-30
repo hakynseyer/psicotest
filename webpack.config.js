@@ -124,6 +124,17 @@ const webpackConfig = {
           },
         },
       },
+      // {
+      //   test: /\.ts$/,
+      //   exclude: [/node_modules/],
+      //   use: {
+      //     loader: "babel-loader",
+      //     options: {
+      //       presets: ["@babel/preset-env", "babel-preset-typescript-vue3", "@babel/preset-typescript"],
+      //       plugins: ['@babel/plugin-transform-runtime'],
+      //     },
+      //   },
+      // },
       {
         test: /\.ts$/,
         loader: "ts-loader",
@@ -131,6 +142,21 @@ const webpackConfig = {
           appendTsSuffixTo: [/.vue$/],
         },
         exclude: /node_modules/,
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            // loader: 'url-loader',
+            options: {
+              // limit: 8192,
+              // name: '../images/[name].[ext]'
+              name: '[name].[ext]',
+              outputPath: '../images'
+            }
+          },
+        ],
       },
       {
         test: /\.css$/,

@@ -5,18 +5,26 @@ import {EM} from '@Assets/ts/mitt'
 
 import * as Interfaces from "@TS/interfaces";
 
-import "leaflet/dist/leaflet.css"
+/* import "leaflet/dist/leaflet.css" */ // ESTE SE CARGARÁ DESDE EL ARCHIVO main.html
 import L from 'leaflet'
-/* delete L.Icon.Default.prototype._getIconUrl; */
-/* import * as iconA from 'leaflet/dist/images/marker-icon-2x.png' */
-/* import * as iconB from 'leaflet/dist/images/marker-icon.png' */
-/* import * as iconC from 'leaflet/dist/images/marker-shadow.png' */
 
-/* L.Icon.Default.mergeOptions({ */
-/*    iconRetinaUrl: iconA, */
-/*    iconUrl: iconB, */
-/*    shadowUrl: iconC, */
-/* }); */
+// TODO: No logro hacer que se renderice un marcador personalizado
+const customMarker = L.icon({
+    iconUrl: require('@Assets/images/marker-icon.png'),
+    /* shadowUrl: require('@Assets/images/marker-shadow.png'), */
+    iconAnchor: null,
+    popupAnchor: null,
+    shadowUrl: null,
+    shadowSize: null,
+    shadowAnchor: null,
+    iconSize: new L.Point(60, 75),
+    className: 'leaflet-div-icon'
+    /* iconSize:     [38, 95], // size of the icon */
+    /* shadowSize:   [50, 64], // size of the shadow */
+    /* iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location */
+    /* shadowAnchor: [4, 62],  // the same for the shadow */
+    /* popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor */
+})
 
 // [COMPONENTES]
 import Table from '@Components/table/table.vue'
@@ -82,7 +90,7 @@ const chargeMap = async (cords: Map_Cords) => {
 
   const {lat, lng} = cords
 
-  mapLeaflet.value = L.map('mapContainer').setView([lat, lng], 8)
+  mapLeaflet.value = L.map('mapContainer').setView([lat, lng], 10)
   await setInterval(() => {
     mapLeaflet.value.invalidateSize()
   }, 2000)
@@ -102,6 +110,11 @@ const mapClick = async (e) => {
 
     if (res) {
       addMarker.value = false
+
+      mapLeaflet.value.eachLayer(layer => {
+        if (layer['_latlng'] !== undefined) layer.remove() 
+      })
+
       L.marker([cords.lat, cords.lng]).addTo(mapLeaflet.value)
     }
   }
